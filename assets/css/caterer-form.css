@@ -1,0 +1,1232 @@
+/* =========================================================
+   UTSAVDESK PLATFORM ADMIN
+   CATERER CREATE / EDIT FORM
+   ========================================================= */
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.caterer-form-breadcrumb {
+    margin-bottom: 13px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+.caterer-form-breadcrumb a {
+    color: var(--ud-text-muted);
+    text-decoration: none;
+}
+
+.caterer-form-breadcrumb a:hover {
+    color: var(--ud-primary);
+}
+
+.caterer-form-breadcrumb i {
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.caterer-form-heading {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.caterer-form-heading > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.caterer-form-heading h2 {
+    margin: 0 0 3px;
+    color: var(--ud-text);
+    font-size: 22px;
+    font-weight: 750;
+    letter-spacing: -.45px;
+}
+
+.caterer-form-heading p {
+    margin: 0;
+    color: var(--ud-text-secondary);
+    font-size: 12px;
+}
+
+.caterer-back-button {
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    border: 1px solid var(--ud-border);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--ud-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: .15s ease;
+}
+
+.caterer-back-button:hover {
+    border-color: var(--ud-primary);
+    color: var(--ud-primary);
+}
+
+.caterer-heading-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.caterer-heading-actions .ud-btn {
+    min-height: 39px;
+    padding: 8px 13px;
+    font-size: 12px;
+}
+
+.caterer-cancel-button {
+    min-height: 39px;
+    padding: 8px 13px;
+    border: 1px solid var(--ud-border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ud-text-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.caterer-cancel-button:hover {
+    border-color: #c7c8cc;
+    color: var(--ud-text);
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.caterer-form-progress {
+    margin-bottom: 18px;
+    padding: 13px 18px;
+    border: 1px solid var(--ud-border);
+    border-radius: 13px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.caterer-progress-item {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+}
+
+.caterer-progress-item > span {
+    width: 27px;
+    height: 27px;
+    flex: 0 0 27px;
+    border-radius: 50%;
+    background: #f0f1f3;
+    color: var(--ud-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.caterer-progress-item.active > span {
+    background: var(--ud-primary);
+    color: #fff;
+}
+
+.caterer-progress-item strong {
+    display: block;
+    color: var(--ud-text);
+    font-size: 12px;
+}
+
+.caterer-progress-item small {
+    display: block;
+    margin-top: 1px;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+.caterer-progress-line {
+    height: 1px;
+    min-width: 20px;
+    flex: 1;
+    margin: 0 14px;
+    background: var(--ud-border);
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.caterer-form-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 15px;
+    align-items: start;
+}
+
+.caterer-form-main {
+    min-width: 0;
+}
+
+.caterer-form-side {
+    position: sticky;
+    top: calc(var(--ud-topbar-height) + 15px);
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.caterer-form-card,
+.caterer-side-card {
+    margin-bottom: 14px;
+    border: 1px solid var(--ud-border);
+    border-radius: 14px;
+    background: #fff;
+}
+
+.caterer-form-card {
+    padding: 18px;
+}
+
+.caterer-side-card {
+    padding: 15px;
+}
+
+.caterer-card-heading {
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f0f0f2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.caterer-card-icon {
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    border-radius: 9px;
+    background: var(--ud-primary-soft);
+    color: var(--ud-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.caterer-card-icon.contact {
+    background: var(--ud-secondary-soft);
+    color: #087f9c;
+}
+
+.caterer-card-icon.owner {
+    background: var(--ud-success-bg);
+    color: var(--ud-success);
+}
+
+.caterer-card-icon.subscription {
+    background: #f0edff;
+    color: #7051c8;
+}
+
+.caterer-card-icon.notes {
+    background: var(--ud-warning-bg);
+    color: #986500;
+}
+
+.caterer-card-heading h3 {
+    margin: 0 0 2px;
+    color: var(--ud-text);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.caterer-card-heading p {
+    margin: 0;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   FIELDS
+   ========================================================= */
+
+.caterer-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.caterer-field {
+    min-width: 0;
+}
+
+.caterer-field.full {
+    grid-column: 1 / -1;
+}
+
+.caterer-field label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--ud-text-secondary);
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.caterer-field label > span {
+    color: var(--ud-danger);
+}
+
+.caterer-field input,
+.caterer-field select,
+.caterer-field textarea {
+    width: 100%;
+    min-height: 39px;
+    padding: 8px 10px;
+    border: 1px solid var(--ud-border);
+    border-radius: 8px;
+    background: #fff;
+    outline: none;
+    color: var(--ud-text);
+    font-family: inherit;
+    font-size: 12px;
+    transition:
+        border-color .15s ease,
+        box-shadow .15s ease;
+}
+
+.caterer-field textarea {
+    min-height: 80px;
+    resize: vertical;
+    line-height: 1.55;
+}
+
+.caterer-field input::placeholder,
+.caterer-field textarea::placeholder {
+    color: #afb2b7;
+}
+
+.caterer-field input:focus,
+.caterer-field select:focus,
+.caterer-field textarea:focus {
+    border-color: var(--ud-primary);
+    box-shadow: 0 0 0 3px rgba(160, 16, 61, .05);
+}
+
+.caterer-field input.is-invalid,
+.caterer-field select.is-invalid,
+.caterer-field textarea.is-invalid {
+    border-color: var(--ud-danger);
+    box-shadow: 0 0 0 3px rgba(200, 45, 45, .05);
+}
+
+.caterer-field > small {
+    display: block;
+    margin-top: 4px;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   INPUT ICON
+   ========================================================= */
+
+.caterer-input-icon {
+    position: relative;
+}
+
+.caterer-input-icon > i {
+    position: absolute;
+    top: 50%;
+    left: 11px;
+    z-index: 2;
+    transform: translateY(-50%);
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+.caterer-input-icon input {
+    padding-left: 31px;
+}
+
+
+/* =========================================================
+   INPUT SUFFIX
+   ========================================================= */
+
+.caterer-input-suffix {
+    position: relative;
+}
+
+.caterer-input-suffix input {
+    padding-right: 50px;
+}
+
+.caterer-input-suffix > span {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SUBSECTION
+   ========================================================= */
+
+.caterer-form-subsection {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f2;
+}
+
+.caterer-form-subsection > h4,
+.caterer-subsection-heading h4 {
+    margin: 0 0 12px;
+    color: var(--ud-text);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.caterer-subsection-heading {
+    margin-bottom: 10px;
+}
+
+.caterer-subsection-heading h4 {
+    margin-bottom: 2px;
+}
+
+.caterer-subsection-heading p {
+    margin: 0;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   INFO BANNER
+   ========================================================= */
+
+.caterer-info-banner {
+    margin-bottom: 16px;
+    padding: 11px;
+    border: 1px solid #d8edf3;
+    border-radius: 9px;
+    background: #f3fbfd;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.caterer-info-banner > i {
+    color: #087f9c;
+    font-size: 13px;
+}
+
+.caterer-info-banner strong {
+    display: block;
+    color: #075f76;
+    font-size: 12px;
+}
+
+.caterer-info-banner p {
+    margin: 2px 0 0;
+    color: #55777f;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ACCOUNT SETUP
+   ========================================================= */
+
+.caterer-account-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+}
+
+.caterer-option-card {
+    cursor: pointer;
+}
+
+.caterer-option-card > input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.caterer-option-card > span {
+    min-height: 72px;
+    padding: 11px;
+    border: 1px solid var(--ud-border);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    transition: .15s ease;
+}
+
+.caterer-option-card > input:checked + span {
+    border-color: var(--ud-primary);
+    background: var(--ud-primary-soft);
+    box-shadow: 0 0 0 1px var(--ud-primary);
+}
+
+.caterer-option-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 8px;
+    background: #f2f3f5;
+    color: var(--ud-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caterer-option-card > input:checked +
+span .caterer-option-icon {
+    background: #fff;
+    color: var(--ud-primary);
+}
+
+.caterer-option-card strong {
+    display: block;
+    color: var(--ud-text);
+    font-size: 12px;
+}
+
+.caterer-option-card small {
+    display: block;
+    margin-top: 2px;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.caterer-temp-password {
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid var(--ud-border);
+    border-radius: 9px;
+    background: #fafafa;
+}
+
+.caterer-temp-password > label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--ud-text-secondary);
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.caterer-temp-password > small {
+    display: block;
+    margin-top: 5px;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+.caterer-password-input {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto 34px;
+    gap: 6px;
+}
+
+.caterer-password-input input {
+    min-width: 0;
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid var(--ud-border);
+    border-radius: 8px;
+    outline: none;
+    font-size: 12px;
+}
+
+.caterer-password-input button {
+    min-height: 38px;
+    padding: 0 10px;
+    border: 1px solid var(--ud-border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ud-text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#toggleTemporaryPassword {
+    padding: 0;
+}
+
+
+/* =========================================================
+   SUBSCRIPTION PLANS
+   ========================================================= */
+
+.caterer-plan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.caterer-plan-card {
+    position: relative;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.caterer-plan-card > input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.caterer-plan-content {
+    position: relative;
+    min-height: 155px;
+    padding: 13px;
+    border: 1px solid var(--ud-border);
+    border-radius: 11px;
+    background: #fff;
+    display: block;
+    transition: .15s ease;
+}
+
+.caterer-plan-card > input:checked +
+.caterer-plan-content {
+    border-color: var(--ud-primary);
+    background: var(--ud-primary-soft);
+    box-shadow: 0 0 0 1px var(--ud-primary);
+}
+
+.caterer-plan-top {
+    margin-bottom: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.caterer-plan-icon {
+    width: 31px;
+    height: 31px;
+    border-radius: 8px;
+    background: #f2f3f5;
+    color: var(--ud-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caterer-plan-card > input:checked +
+.caterer-plan-content .caterer-plan-icon {
+    background: #fff;
+    color: var(--ud-primary);
+}
+
+.caterer-plan-radio {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #cfd1d5;
+    border-radius: 50%;
+    background: #fff;
+    display: block;
+}
+
+.caterer-plan-card > input:checked +
+.caterer-plan-content .caterer-plan-radio {
+    border: 4px solid var(--ud-primary);
+}
+
+.caterer-plan-content > strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--ud-text);
+    font-size: 12px;
+}
+
+.caterer-plan-price {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--ud-text);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.caterer-plan-price small {
+    color: var(--ud-text-muted);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.caterer-plan-content > small {
+    color: var(--ud-text-muted);
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.caterer-recommended {
+    position: absolute;
+    top: -7px;
+    right: 9px;
+    padding: 3px 6px;
+    border-radius: 20px;
+    background: var(--ud-primary);
+    color: #fff;
+    font-size: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CHARACTER COUNT
+   ========================================================= */
+
+.caterer-character-count {
+    margin-top: 4px;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+    text-align: right;
+}
+
+
+/* =========================================================
+   SIDE CARD
+   ========================================================= */
+
+.caterer-side-heading {
+    margin-bottom: 12px;
+}
+
+.caterer-side-heading h3 {
+    margin: 0 0 2px;
+    color: var(--ud-text);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.caterer-side-heading p {
+    margin: 0;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   LOGO UPLOAD
+   ========================================================= */
+
+.caterer-logo-upload {
+    position: relative;
+    min-height: 150px;
+    border: 1px dashed #d2d4d8;
+    border-radius: 10px;
+    background: #fafafa;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.caterer-logo-placeholder {
+    min-height: 150px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.caterer-logo-placeholder i {
+    margin-bottom: 8px;
+    color: var(--ud-primary);
+    font-size: 23px;
+}
+
+.caterer-logo-placeholder strong {
+    color: var(--ud-text);
+    font-size: 12px;
+}
+
+.caterer-logo-placeholder small {
+    margin-top: 3px;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+.caterer-logo-upload > img {
+    width: 100%;
+    height: 150px;
+    padding: 12px;
+    object-fit: contain;
+    background: #fff;
+}
+
+.caterer-logo-actions {
+    margin-top: 8px;
+    display: flex;
+    gap: 6px;
+}
+
+.caterer-logo-actions button {
+    flex: 1;
+    height: 31px;
+    border: 1px solid var(--ud-border);
+    border-radius: 7px;
+    background: #fff;
+    color: var(--ud-text-secondary);
+    font-size: 12px;
+}
+
+.caterer-logo-actions button.danger {
+    color: var(--ud-danger);
+}
+
+
+/* =========================================================
+   TOGGLE ROW
+   ========================================================= */
+
+.caterer-toggle-row {
+    min-height: 53px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.caterer-toggle-row:last-child {
+    border-bottom: 0;
+}
+
+.caterer-toggle-row strong {
+    display: block;
+    color: var(--ud-text);
+    font-size: 12px;
+}
+
+.caterer-toggle-row small {
+    display: block;
+    margin-top: 2px;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.caterer-toggle-row .form-check-input {
+    width: 31px;
+    height: 17px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.caterer-toggle-row .form-check-input:checked {
+    border-color: var(--ud-primary);
+    background-color: var(--ud-primary);
+}
+
+
+/* =========================================================
+   PREVIEW
+   ========================================================= */
+
+.caterer-preview-business {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f2;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.caterer-preview-logo {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    border-radius: 9px;
+    background: var(--ud-primary);
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.caterer-preview-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.caterer-preview-business strong {
+    display: block;
+    max-width: 165px;
+    overflow: hidden;
+    color: var(--ud-text);
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.caterer-preview-business span {
+    display: block;
+    margin-top: 2px;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+.caterer-preview-details {
+    margin-top: 10px;
+}
+
+.caterer-preview-details > div {
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.caterer-preview-details span {
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+.caterer-preview-details strong {
+    max-width: 150px;
+    overflow: hidden;
+    color: var(--ud-text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.caterer-preview-details strong.status-active {
+    padding: 3px 6px;
+    border-radius: 20px;
+    background: var(--ud-success-bg);
+    color: var(--ud-success);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SIDE INFO
+   ========================================================= */
+
+.caterer-side-info {
+    padding: 12px;
+    border: 1px solid #d8edf3;
+    border-radius: 10px;
+    background: #f3fbfd;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.caterer-side-info > i {
+    color: #087f9c;
+    font-size: 13px;
+}
+
+.caterer-side-info strong {
+    display: block;
+    color: #075f76;
+    font-size: 12px;
+}
+
+.caterer-side-info p {
+    margin: 3px 0 0;
+    color: #55777f;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BOTTOM ACTIONS
+   ========================================================= */
+
+.caterer-bottom-actions {
+    display: none;
+}
+
+
+/* =========================================================
+   SUCCESS MODAL
+   ========================================================= */
+
+.caterer-success-modal {
+    border: 0;
+    border-radius: 16px;
+    box-shadow: var(--ud-shadow-lg);
+}
+
+.caterer-success-modal .modal-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.caterer-success-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 13px;
+    border-radius: 50%;
+    background: var(--ud-success-bg);
+    color: var(--ud-success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.caterer-success-modal h3 {
+    margin: 0 0 6px;
+    color: var(--ud-text);
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.caterer-success-modal p {
+    max-width: 330px;
+    margin: 0 auto;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.caterer-success-code {
+    margin: 17px 0;
+    padding: 11px;
+    border: 1px solid var(--ud-border);
+    border-radius: 9px;
+    background: #fafafa;
+}
+
+.caterer-success-code span {
+    display: block;
+    color: var(--ud-text-muted);
+    font-size: 12px;
+}
+
+.caterer-success-code strong {
+    display: block;
+    margin-top: 3px;
+    color: var(--ud-primary);
+    font-size: 12px;
+    letter-spacing: .4px;
+}
+
+.caterer-success-actions {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+}
+
+.caterer-success-actions .ud-btn {
+    min-height: 39px;
+    padding: 8px 13px;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+
+    .caterer-form-layout {
+        grid-template-columns: minmax(0, 1fr) 230px;
+    }
+
+    .caterer-plan-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 991.98px) {
+
+    .caterer-form-layout {
+        display: block;
+    }
+
+    .caterer-form-side {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .caterer-form-side .caterer-side-card {
+        margin-bottom: 0;
+    }
+
+    .caterer-side-info {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+@media (max-width: 767.98px) {
+
+    .caterer-form-heading {
+        align-items: flex-start;
+    }
+
+    .caterer-form-heading h2 {
+        font-size: 19px;
+    }
+
+    .caterer-heading-actions {
+        display: none;
+    }
+
+    .caterer-form-progress {
+        overflow-x: auto;
+    }
+
+    .caterer-progress-item {
+        min-width: 105px;
+    }
+
+    .caterer-progress-line {
+        min-width: 18px;
+        margin: 0 8px;
+    }
+
+    .caterer-fields-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .caterer-field.full {
+        grid-column: auto;
+    }
+
+    .caterer-form-side {
+        grid-template-columns: 1fr;
+    }
+
+    .caterer-side-info {
+        grid-column: auto;
+    }
+
+    .caterer-bottom-actions {
+        position: sticky;
+        bottom: 0;
+        z-index: 50;
+        margin: 15px -12px -12px;
+        padding: 10px 12px;
+        border-top: 1px solid var(--ud-border);
+        background: rgba(255, 255, 255, .96);
+        backdrop-filter: blur(8px);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+    }
+
+    .caterer-bottom-actions .ud-btn {
+        justify-content: center;
+        font-size: 12px;
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+
+    .caterer-form-breadcrumb {
+        display: none;
+    }
+
+    .caterer-form-card {
+        padding: 14px;
+    }
+
+    .caterer-form-progress {
+        margin-right: -12px;
+        margin-left: -12px;
+        border-right: 0;
+        border-left: 0;
+        border-radius: 0;
+    }
+
+    .caterer-progress-item small {
+        display: none;
+    }
+
+    .caterer-account-options {
+        grid-template-columns: 1fr;
+    }
+
+    .caterer-plan-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .caterer-plan-content {
+        min-height: 145px;
+        padding: 11px;
+    }
+
+    .caterer-password-input {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    #toggleTemporaryPassword {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 390px) {
+
+    .caterer-plan-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

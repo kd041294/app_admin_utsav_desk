@@ -1,0 +1,61 @@
+CREATE TABLE IF NOT EXISTS user_subscription_payment (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    receipt_number VARCHAR(40) NOT NULL,
+    user_id BIGINT UNSIGNED NOT NULL,
+    plan_name VARCHAR(100) NOT NULL,
+    amount DECIMAL(12,2) NOT NULL,
+    list_amount DECIMAL(12,2) NOT NULL DEFAULT 24999.00,
+    discount_amount DECIMAL(12,2) NOT NULL DEFAULT 15000.00,
+    currency CHAR(3) NOT NULL DEFAULT 'INR',
+    payment_method ENUM('CASH','UPI','BANK_TRANSFER','CHEQUE','CARD','OTHER') NOT NULL,
+    payment_reference VARCHAR(150) NULL,
+    paid_at DATETIME NOT NULL,
+    payer_name VARCHAR(150) NOT NULL,
+    duration_days SMALLINT UNSIGNED NOT NULL,
+    requested_start DATE NOT NULL,
+    notes VARCHAR(2000) NULL,
+    status ENUM('PAID','VOID') NOT NULL DEFAULT 'PAID',
+    request_key CHAR(32) NOT NULL,
+    payload_hash CHAR(64) NOT NULL,
+    recorded_by BIGINT UNSIGNED NOT NULL,
+    recorded_by_name VARCHAR(200) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    voided_at DATETIME NULL,
+    voided_by BIGINT UNSIGNED NULL,
+    void_reason VARCHAR(1000) NULL,
+    UNIQUE KEY uq_subscription_receipt (receipt_number),
+    UNIQUE KEY uq_subscription_request (request_key),
+    UNIQUE KEY uq_subscription_reference (payment_method, payment_reference),
+    KEY idx_subscription_payment_date (paid_at, status),
+    KEY idx_subscription_payment_user (user_id, status),
+    CONSTRAINT fk_subscription_payment_user FOREIGN KEY (user_id) REFERENCES user_info(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS user_subscription (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT UNSIGNED NOT NULL,
+    payment_id BIGINT UNSIGNED NOT NULL,
+    plan_name VARCHAR(100) NOT NULL,
+    all_features TINYINT(1) NOT NULL DEFAULT 1,
+    starts_on DATE NOT NULL,
+    ends_on DATE NOT NULL COMMENT 'Exclusive end date',
+    status ENUM('ACTIVE','CANCELLED') NOT NULL DEFAULT 'ACTIVE',
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    cancelled_at DATETIME NULL,
+    UNIQUE KEY uq_subscription_payment (payment_id),
+    KEY idx_subscription_user_dates (user_id, status, ends_on, starts_on),
+    CONSTRAINT fk_subscription_user FOREIGN KEY (user_id) REFERENCES user_info(id),
+    CONSTRAINT fk_subscription_payment FOREIGN KEY (payment_id) REFERENCES user_subscription_payment(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS user_subscription_audit (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    payment_id BIGINT UNSIGNED NOT NULL,
+    admin_id BIGINT UNSIGNED NOT NULL,
+    admin_name VARCHAR(200) NOT NULL,
+    action ENUM('PAYMENT_RECORDED','PAYMENT_VOIDED') NOT NULL,
+    description VARCHAR(2000) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    KEY idx_subscription_audit_payment (payment_id, created_at),
+    CONSTRAINT fk_subscription_audit_payment FOREIGN KEY (payment_id) REFERENCES user_subscription_payment(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
